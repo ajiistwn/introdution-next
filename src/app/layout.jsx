@@ -9,6 +9,11 @@ export default function RootLayout({ children }) {
       </head>
       <body >
         {children}
+        <footer >
+          <p>
+            &copy; {new Date().getFullYear()} Cms App
+          </p>
+        </footer>
       </body>
     </html>
   );
