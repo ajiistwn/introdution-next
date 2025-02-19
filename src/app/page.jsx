@@ -1,21 +1,17 @@
-"use client";
+// "use client";
 
-import { useEffect } from "react";
+import Heading from "@/components/Heading";
 
 export default function Home() {
-
-  useEffect(() => {
-    window.alert("Home page mounted");
-  }, []);
   return (
+    < >
+      <Heading>Next.js App</Heading>
 
-    <main >
-      <h1>Next.js App</h1>
       <p>
         This is a Next.js app with a custom Express server.
       </p>
 
-    </main>
+    </>
 
   );
 }

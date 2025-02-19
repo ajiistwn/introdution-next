@@ -1,13 +1,15 @@
+import Heading from "@/components/Heading";
+
 export default function ContactPage() {
     return (
 
-        <main >
-            <h1>Contact Page</h1>
+        < >
+            <Heading>Contact Page</Heading>
             <p>
                 This is the news page
             </p>
 
-        </main>
+        </>
 
     );
 }

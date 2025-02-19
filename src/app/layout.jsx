@@ -1,10 +1,19 @@
 import './globals.css';
-import Navbar from '../../components/navbar';
+
+import Navbar from '../components/Navbar';
+// import { phudu } from '../font';
+
+import { Phudu } from "next/font/google";
+
+export const phudu = Phudu({
+  weight: ["400", "700"],
+  subsets: ['latin'],
+})
 
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${phudu.variable}`}>
       <head>
         <title>Cms App</title>
       </head>
