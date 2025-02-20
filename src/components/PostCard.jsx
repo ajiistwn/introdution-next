@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 export default function PostCard({ title, href, image, description, date, author }) {
+    console.log(href)
     return (
         <div className="flex flex-wrap">
             <div className="mb-4 w-full shrink-0 grow-0 basis-auto md:mb-0 md:w-2/12">
