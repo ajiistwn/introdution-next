@@ -4,9 +4,7 @@ import { getAllPosts } from "@/lib/post";
 
 export default async function BlogPage() {
     const posts = await getAllPosts()
-    // console.log(posts)
     return (
-
         < >
             <Heading>Blog Page</Heading>
             <h2 className="text-2xl mb-3">List Blog</h2>
@@ -24,6 +22,5 @@ export default async function BlogPage() {
             <p>This is the blog page.</p>
 
         </>
-
     );
 }
