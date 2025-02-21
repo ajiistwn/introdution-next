@@ -1,0 +1,66 @@
+{
+  "data": [
+    {
+      "id": 15,
+      "documentId": "ni2bgvw7u4pfh79lxwdkp570",
+      "title": "Title: Panduan Belajar React untuk Pemula",
+      "description": "React adalah library JavaScript yang populer untuk membangun UI interaktif. Artikel ini membahas dasar-dasar React dan cara memulai proyek React pertama Anda.",
+      "body": "React dikembangkan oleh Facebook dan digunakan untuk membangun UI yang cepat dan efisien dengan konsep komponen.\nLangkah-langkah memulai React:\n\n1. Install Node.js dan gunakan npx create-react-app my-app\n2. Pahami konsep JSX dan komponen\n3. Gunakan state dan props untuk mengelola data\n4. Integrasi dengan API menggunakan useEffect",
+      "slug": "title-panduan-belajar-react-untuk-pemula",
+      "createdAt": "2025-02-21T09:50:13.082Z",
+      "updatedAt": "2025-02-21T10:38:15.675Z",
+      "publishedAt": "2025-02-21T10:38:15.680Z",
+      "locale": "en",
+      "author": "admin",
+      "images": {
+        "id": 3,
+        "documentId": "gg0xnjgb4ihiprrpp93n6xph",
+        "url": "/uploads/sumup_Bb_Ah4k_TXUM_4_unsplash_60e399b321.jpg"
+      }
+    },
+    {
+      "id": 14,
+      "documentId": "k6sx9fy04flk7ir3twihy6xy",
+      "title": "Strapi: CMS Headless untuk Proyek Web Modern",
+      "description": "Strapi adalah CMS headless open-source yang memungkinkan pengembang mengelola konten dengan fleksibilitas tinggi.",
+      "body": "Strapi adalah salah satu CMS headless yang banyak digunakan untuk membangun backend fleksibel dengan REST API atau GraphQL.\n\nFitur utama Strapi:\n\n- Interface admin yang mudah digunakan\n- Dukungan database seperti SQLite, PostgreSQL, dan MySQL\n- Autentikasi bawaan dan peran pengguna",
+      "slug": "strapi-cms-headless-untuk-proyek-web-modern",
+      "createdAt": "2025-02-21T09:51:23.089Z",
+      "updatedAt": "2025-02-21T10:38:06.233Z",
+      "publishedAt": "2025-02-21T10:38:06.240Z",
+      "locale": "en",
+      "author": "admin",
+      "images": {
+        "id": 4,
+        "documentId": "rvuu7btyy0ecfu2fqhzztdz6",
+        "url": "/uploads/sumup_ogx_C_Vs_Qz_O_Gg_unsplash_26ffb59238.jpg"
+      }
+    },
+    {
+      "id": 13,
+      "documentId": "phugz0huxvk0n63rc875ahfo",
+      "title": "Mengenal Next.js: Framework React untuk Aplikasi Modern",
+      "description": "Next.js adalah framework React yang populer untuk pengembangan aplikasi web modern. Artikel ini membahas fitur dan keunggulan Next.js dalam membangun aplikasi yang cepat dan efisien.",
+      "body": "Next.js adalah framework yang dibangun di atas React dan menawarkan fitur seperti Server-Side Rendering (SSR), Static Site Generation (SSG), dan API Routes. Dengan Next.js, pengembang dapat membangun aplikasi yang lebih cepat, lebih SEO-friendly, dan memiliki pengalaman pengguna yang lebih baik.",
+      "slug": "mengenal-next-js-framework-react-untuk-aplikasi-modern",
+      "createdAt": "2025-02-21T09:46:27.956Z",
+      "updatedAt": "2025-02-21T10:37:55.016Z",
+      "publishedAt": "2025-02-21T10:37:55.022Z",
+      "locale": "en",
+      "author": "admin",
+      "images": {
+        "id": 1,
+        "documentId": "aes4m9xwwrovhnzl2uqo4v0u",
+        "url": "/uploads/ali_kazal_n_Ol_K_Hu_Aksi_Y_unsplash_e529d8a27b.jpg"
+      }
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 3,
+      "pageCount": 2,
+      "total": 5
+    }
+  }
+}

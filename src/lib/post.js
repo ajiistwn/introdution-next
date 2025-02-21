@@ -1,4 +1,9 @@
 import { readFile, readdir } from 'fs/promises';
+import qs from "qs";
+
+export const CACHE_TAG_POSTS = "posts";
+
+const BACKEND_URL = "http://localhost:1337";
 
 import matter from "gray-matter";
 import { marked } from "marked";
@@ -15,6 +20,16 @@ export async function getPost(slug) {
 }
 
 
+export async function getSlugs() {
+    const { data } = await fetchPosts({
+        fields: ["slug"],
+        sort: ["publishedAt:desc"],
+        pagination: { pageSize: 100 },
+    });
+    return data.map(({ attributes }) => attributes.slug);
+}
+
+
 export async function getAllPosts() {
     const files = await readdir("./public/content/blog")
     const slugs = files
@@ -27,4 +42,20 @@ export async function getAllPosts() {
         posts.push(post)
     }
     return posts
+}
+
+async function fetchPosts(parameters) {
+    const url =
+        `${BACKEND_URL}/api/posts?` +
+        qs.stringify(parameters, { encodeValuesOnly: true });
+    console.log(url);
+    const response = await fetch(url, {
+        next: {
+            tags: [CACHE_TAG_POSTS],
+        },
+    });
+    if (!response.ok) {
+        throw new Error(response.statusText);
+    }
+    return await response.json();
 }
