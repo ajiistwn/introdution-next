@@ -1,7 +1,7 @@
 import './globals.css';
-
+import "github-markdown-css";
 import Navbar from '../components/Navbar';
-// import { phudu } from '../font';
+
 
 import { Phudu } from "next/font/google";
 

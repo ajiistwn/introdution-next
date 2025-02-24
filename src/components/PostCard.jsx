@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function PostCard({ title, href, image, description, date, author }) {
     console.log(href)
@@ -6,7 +7,7 @@ export default function PostCard({ title, href, image, description, date, author
         <div className="flex flex-wrap">
             <div className="mb-4 w-full shrink-0 grow-0 basis-auto md:mb-0 md:w-2/12">
                 <div className="relative mb-6 overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg">
-                    <img
+                    <Image
                         src={image}
                         alt={title}
                         className="w-full"

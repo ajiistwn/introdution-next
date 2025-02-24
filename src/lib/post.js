@@ -5,10 +5,10 @@ export const CACHE_TAG_POSTS = "posts";
 const BACKEND_URL = "http://localhost:1337";
 
 import { marked } from "marked";
+marked.use({ gfm: true, headerIds: false, mangle: false });
 
 
 export async function getPost(slug) {
-
     const { data } = await fetchPosts({
         filters: {
             slug: {
@@ -19,8 +19,13 @@ export async function getPost(slug) {
         populate: { images: { fields: ["url"] } },
         pagination: { pageSize: 5, withCount: false }
     })
-    console.log(data)
+
+
     const attributes = data[0]
+
+    if (!attributes) {
+        return null
+    }
 
     return {
         slug: attributes.slug,
@@ -28,7 +33,7 @@ export async function getPost(slug) {
         description: attributes.description,
         author: attributes.author,
         date: attributes.publishedAt.slice(0, "yyyy-mm-dd".length),
-        body: marked(attributes.body, { headersIds: false, mangle: false }),
+        body: marked.parse(attributes.body),
         image: BACKEND_URL + attributes.images.url,
     }
 
@@ -41,7 +46,7 @@ export async function getSlugs() {
         sort: ["publishedAt:desc"],
         pagination: { pageSize: 100 },
     });
-    return data.map(({ attributes }) => attributes.slug);
+    return data.map((attributes) => attributes.slug);
 }
 
 
@@ -50,7 +55,7 @@ export async function getAllPosts() {
         field: ["slug", "title", "description", "publisheAt", "author", "body"],
         populate: { images: { fields: ["url"] } },
         sort: ["publishedAt:desc"],
-        pagination: { pageSize: 5, withCount: false }
+        pagination: { pageSize: 3, withCount: false }
 
     })
 
@@ -71,7 +76,8 @@ async function fetchPosts(parameters) {
         qs.stringify(parameters, { encodeValuesOnly: true });
     const response = await fetch(url, {
         next: {
-            tags: [CACHE_TAG_POSTS],
+            revalidate: 10
+            // tags: [CACHE_TAG_POSTS],
         },
     });
     if (!response.ok) {
