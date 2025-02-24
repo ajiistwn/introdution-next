@@ -9,7 +9,7 @@ marked.use({ gfm: true, headerIds: false, mangle: false });
 
 
 export async function getPost(slug) {
-    const { data } = await fetchPosts({
+    const { data, meta } = await fetchPosts({
         filters: {
             slug: {
                 $eq: slug
@@ -26,8 +26,9 @@ export async function getPost(slug) {
     if (!attributes) {
         return null
     }
-
+    // console.log(meta)
     return {
+        // pageCount: meta.pagination.pageCount,
         slug: attributes.slug,
         title: attributes.title,
         description: attributes.description,
@@ -50,16 +51,16 @@ export async function getSlugs() {
 }
 
 
-export async function getAllPosts() {
-    const { data } = await fetchPosts({
+export async function getAllPosts(pageSize, page) {
+    const { data, meta } = await fetchPosts({
         field: ["slug", "title", "description", "publisheAt", "author", "body"],
         populate: { images: { fields: ["url"] } },
         sort: ["publishedAt:desc"],
-        pagination: { pageSize: 3, withCount: false }
+        pagination: { pageSize, page }
 
     })
-
-    return data.map((item) => ({
+    // console.log(meta)
+    const datas = data.map((item) => ({
         slug: item.slug,
         title: item.title,
         description: item.description,
@@ -68,6 +69,8 @@ export async function getAllPosts() {
         body: item.body,
         image: BACKEND_URL + item.images.url,
     }))
+    const pageCount = meta.pagination.pageCount
+    return { datas, pageCount }
 }
 
 async function fetchPosts(parameters) {
@@ -76,8 +79,7 @@ async function fetchPosts(parameters) {
         qs.stringify(parameters, { encodeValuesOnly: true });
     const response = await fetch(url, {
         next: {
-            revalidate: 10
-            // tags: [CACHE_TAG_POSTS],
+            tags: [CACHE_TAG_POSTS],
         },
     });
     if (!response.ok) {
